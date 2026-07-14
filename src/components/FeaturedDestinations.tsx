@@ -84,17 +84,26 @@ export const FeaturedDestinations: React.FC = () => {
     <section id="explore" className="py-24 md:py-32 bg-[#FAF7F2] border-t border-brand-border/40">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 md:mb-20 space-y-4">
-          <span className="text-xs uppercase tracking-widest font-semibold text-brand-primary">
-            Curated Expeditions
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center mb-24 md:mb-28 space-y-6"
+        >
+          <span className="text-[11px] uppercase tracking-[0.35em] font-semibold text-brand-primary">
+            CURATED EXPEDITIONS
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
-            Featured Heritage Landmarks
+          <div className="w-24 h-px bg-brand-primary/30 mx-auto" />
+          <h2 className="max-w-2xl mx-auto font-serif text-5xl md:text-6xl font-semibold leading-[1.08] tracking-tight text-brand-text">
+            Discover India&apos;s
+            <br />
+            Timeless Heritage
           </h2>
-          <p className="font-sans text-base md:text-lg text-brand-secondary leading-relaxed font-light">
-            Every stone holds an echo of the past. Explore six of India&apos;s most significant cultural marvels, chosen for their architectural brilliance and historical narratives.
+          <p className="max-w-2xl mx-auto font-sans text-lg text-brand-secondary leading-8 font-light">
+            Explore extraordinary destinations where architecture, mythology and history come together to tell stories that continue to shape India's cultural identity.
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards Grid */}
         <motion.div
@@ -108,10 +117,10 @@ export const FeaturedDestinations: React.FC = () => {
             <motion.div
               key={dest.title}
               variants={cardVariants}
-              className="group bg-white rounded-2xl overflow-hidden border border-brand-border/50 hover:shadow-[0_20px_50px_rgba(138,90,68,0.08)] hover:-translate-y-2 transition-all duration-500 flex flex-col h-full cursor-pointer"
+              className="group bg-white rounded-3xl overflow-hidden border border-brand-border/50 hover:shadow-[0_30px_70px_rgba(0,0,0,0.12)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 flex flex-col h-full cursor-pointer"
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-bg">
+              <div className="relative aspect-[5/4] w-full overflow-hidden bg-brand-bg">
                 <Image
                   src={dest.image}
                   alt={dest.title}
@@ -120,46 +129,60 @@ export const FeaturedDestinations: React.FC = () => {
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   priority={idx < 3}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 via-40% to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
                 {/* Category Badge */}
-                <span className="absolute top-4 left-4 text-xs font-semibold uppercase tracking-wider bg-white/95 text-brand-primary px-3.5 py-1.5 rounded-full shadow-sm">
+                <span className="absolute top-5 left-5 bg-white/15 backdrop-blur-xl border border-white/20 text-white text-[10px] uppercase tracking-[0.25em] font-medium px-4 py-2 rounded-full">
                   {dest.category}
                 </span>
               </div>
 
               {/* Card Body */}
-              <div className="p-6 md:p-8 flex flex-col flex-1 justify-between space-y-4">
-                <div className="space-y-3">
-                  {/* Location Info */}
-                  <div className="flex items-center space-x-1.5 text-xs text-brand-secondary">
-                    <MapPin className="h-3.5 w-3.5 text-brand-accent" />
-                    <span>{dest.state}, India</span>
-                  </div>
+              <div className="flex flex-col flex-1 p-7 md:p-8 bg-[#FDFBF7]">
 
-                  {/* Title */}
-                  <h3 className="font-serif text-2xl font-bold text-brand-text group-hover:text-brand-primary transition-colors flex items-center justify-between">
-                    {dest.title}
-                    <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-brand-primary" />
-                  </h3>
+                {/* Accent Line */}
+                <div className="w-12 h-[2px] bg-brand-accent rounded-full mb-6" />
 
-                  {/* Description */}
-                  <p className="font-sans text-sm md:text-base text-brand-secondary font-light leading-relaxed">
-                    {dest.description}
-                  </p>
+                {/* Title */}
+                <h3 className="font-serif text-[30px] leading-tight font-medium text-brand-text group-hover:text-brand-primary transition-colors">
+                  {dest.title}
+                </h3>
+
+                {/* Location */}
+                <div className="flex items-center gap-2 mt-3 text-[14px] text-brand-secondary/80">
+                  <MapPin className="h-4 w-4 text-brand-accent" />
+                  <span>{dest.state}, India</span>
                 </div>
 
-                <div className="pt-4 border-t border-brand-border/40 flex items-center justify-between">
-                  <span className="text-xs tracking-wider uppercase font-semibold text-brand-accent group-hover:text-brand-primary transition-colors">
-                    Explore Stories
+                {/* Description */}
+                <p className="mt-6 text-[15px] leading-7 text-brand-secondary font-light flex-1">
+                  {dest.description}
+                </p>
+
+                {/* Footer */}
+                <div className="mt-8 pt-6 border-t border-brand-border/40 flex items-center justify-between">
+
+                  <span className="text-[11px] uppercase tracking-[0.3em] text-brand-secondary">
+                    {dest.category}
                   </span>
-                  <span className="text-xs text-brand-secondary/60 font-light">12 chapters</span>
+
+                  <button className="flex items-center gap-2 text-brand-primary font-medium group/button">
+
+                    Begin Journey
+
+                    <ArrowUpRight
+                      className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1 group-hover/button:-translate-y-1"
+                    />
+
+                  </button>
+
                 </div>
+
               </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
-    </section>
+    </section >
   );
 };
