@@ -30,16 +30,18 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-[#FAF7F2]/80 backdrop-blur-md border-b border-brand-border/40 shadow-sm py-4"
-          : "bg-transparent py-6"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
+        ? "bg-[#FAF7F2]/80 backdrop-blur-md border-b border-brand-border/40 shadow-sm py-4"
+        : "bg-gradient-to-b from-black/55 via-black/15 to-transparent py-6"
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="font-serif text-2xl font-bold tracking-tight text-brand-primary">
+          <span
+            className={`font-serif text-2xl font-medium tracking-wide tracking-tight transition-colors duration-300 ${isScrolled ? "text-brand-primary" : "text-white"
+              }`}
+          >
             Saanjh
           </span>
         </Link>
@@ -50,10 +52,14 @@ export const Navbar: React.FC = () => {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-brand-text/80 hover:text-brand-primary transition-colors duration-300 relative group"
+              className={`text-sm font-medium tracking-wide relative group transition-all duration-300 ${isScrolled
+                ? "text-brand-text/80 hover:text-brand-primary"
+                : "text-white/90 hover:text-white hover:-translate-y-0.5"
+                }`}
             >
               {link.label}
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-brand-primary transition-all duration-300 group-hover:w-full" />
+              <span className={`absolute left-0 bottom-[-4px] w-0 h-[2px] transition-all duration-300 group-hover:w-full ${isScrolled ? "bg-brand-primary" : "bg-white"
+                }`} />
             </Link>
           ))}
         </nav>
@@ -62,7 +68,10 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center space-x-4">
           <Link
             href="#signin"
-            className="text-sm font-medium text-brand-text/80 hover:text-brand-primary transition-colors duration-300"
+            className={`text-sm font-medium transition-colors duration-300 ${isScrolled
+              ? "text-brand-text/80 hover:text-brand-primary"
+              : "text-white/90 hover:text-white"
+              }`}
           >
             Sign In
           </Link>
@@ -84,9 +93,8 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 w-full max-w-xs bg-[#FAF7F2] shadow-2xl z-40 transform transition-transform duration-500 ease-out border-l border-brand-border md:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed inset-y-0 right-0 w-full max-w-xs bg-[#FAF7F2] shadow-2xl z-40 transform transition-transform duration-700 ease-out border-l border-brand-border md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full justify-between p-8 pt-24">
           <div className="flex flex-col space-y-6">

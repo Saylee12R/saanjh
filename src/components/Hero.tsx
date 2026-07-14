@@ -39,50 +39,54 @@ export const Hero: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/hero.png')` }}
       >
-        <div className="absolute inset-0 bg-black/45 backdrop-brightness-[0.85]" />
+        <div className="absolute inset-0 bg-gradient-to-b
+from-black/55
+via-black/30
+to-black/60 backdrop-brightness-[0.85]" />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-8 text-center text-white flex flex-col items-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center space-y-8"
+          className="flex flex-col items-center space-y-6 md:space-y-8"
         >
-          {/* Tagline */}
-          <motion.span
-            variants={itemVariants}
-            className="text-xs md:text-sm font-semibold uppercase tracking-widest text-brand-accent/90 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm"
-          >
-            Saanjh Cultural Initiative
-          </motion.span>
+
 
           {/* Main Title */}
           <motion.h1
             variants={itemVariants}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight max-w-4xl"
+            className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] font-semibold tracking-[0.12em] text-[#F8F4EC] drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
+          >
+            SAANJH
+          </motion.h1>
+          <motion.h2
+            variants={itemVariants}
+            className=" text-2xl md:text-4xl font-light tracking-wide text-white/95 "
           >
             Every Place Has a Story.
-          </motion.h1>
+          </motion.h2>
 
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="font-sans text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed font-light"
+            className=" font-sans text-base md:text-lg leading-8 max-w-lg text-white/80 font-light "
           >
-            Discover India&apos;s timeless heritage through immersive stories, historical landmarks, and unforgettable journeys.
+            Explore India's living heritage through AI-powered storytelling,
+            interactive maps, virtual experiences, and carefully curated cultural journeys.
           </motion.p>
 
           {/* Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto"
+            className="flex flex-col sm:flex-row gap-5 pt-2 items-center justify-center w-full sm:w-auto"
           >
             <Button
+              className=" w-full sm:w-auto px-10 py-6 text-base rounded-full shadow-xl "
               variant="accent"
               size="lg"
-              className="w-full sm:w-auto cursor-pointer"
               onClick={() => {
                 const exploreSection = document.getElementById("explore");
                 if (exploreSection) {
@@ -90,11 +94,11 @@ export const Hero: React.FC = () => {
                 }
               }}
             >
-              Explore Heritage
+              Start Exploring
             </Button>
             <button
               onClick={() => setShowVideo(true)}
-              className="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white font-medium px-8 py-3 rounded-full border border-white/20 backdrop-blur-sm transition-all duration-300 w-full sm:w-auto cursor-pointer"
+              className="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white font-medium px-9 py-6 rounded-full border  border-white/10 backdrop-blur-sm transition-all duration-300 w-full sm:w-auto cursor-pointer"
             >
               <Play className="h-5 w-5 fill-white text-white" />
               Watch Story
@@ -106,14 +110,15 @@ export const Hero: React.FC = () => {
             variants={itemVariants}
             className="w-full max-w-2xl mt-8"
           >
-            <div className="glass rounded-full px-6 py-4 flex items-center shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-300 group border border-white/30">
-              <Search className="h-5 w-5 text-brand-primary/80 group-hover:text-brand-primary mr-3 transition-colors" />
+            <div className=" flex items-center w-full rounded-full border border-white/20 bg-white/10 backdrop-blur-xl px-7 py-4 shadow-xl hover:bg-white/15 transition-all duration-300"
+            >
+              <Search className="h-5 w-5 text-white/50 mr-4" />
               <input
                 type="text"
-                placeholder="Search heritage sites (e.g. Hampi, Ajanta, Golden Temple)..."
+                placeholder="Search destinations, monuments or stories..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-transparent border-none outline-none w-full text-brand-text placeholder-brand-secondary/70 font-sans text-base md:text-lg font-light focus:ring-0"
+                className="w-full bg-transparent text-white placeholder:text-white/50 outline-none text-lg font-light tracking-wide "
               />
             </div>
           </motion.div>
