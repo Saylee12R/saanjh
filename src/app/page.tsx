@@ -3,9 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { FeaturedDestinations } from "@/components/FeaturedDestinations";
 import { Categories } from "@/components/Categories";
-import { WhySaanjh } from "@/components/WhySaanjh";
-import { QuoteSection } from "@/components/QuoteSection";
 import { AiPreview } from "@/components/AiPreview";
+import { WhySaanjh } from "@/components/WhySaanjh";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -25,17 +24,16 @@ export default function Home() {
         {/* 4. Explore by Category */}
         <Categories />
 
-        {/* 5. Why Saanjh */}
+        {/* 5. AI Preview Section */}
+        <AiPreview />
+
+        {/* 6. Why Saanjh */}
         <WhySaanjh />
 
-        {/* 6. Quote Section */}
-        <QuoteSection />
 
-        {/* 7. AI Preview Section */}
-        <AiPreview />
       </main>
 
-      {/* 8. Footer */}
+      {/* 7. Footer */}
       <Footer />
     </>
   );
