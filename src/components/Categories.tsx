@@ -96,7 +96,7 @@ export const Categories: React.FC = () => {
   };
 
   return (
-    <section id="categories" className="py-16 md:py-20 bg-gradient-to-b from-white via-[#FDFBF8] to-[#FAF7F2] border-t border-brand-border/40">
+    <section id="categories" className="py-16 md:py-20 bg-gradient-to-b from-white  via-[#F8F4EF] to-[#F2ECE5] border-t border-brand-border/40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* Header */}
         <motion.div
