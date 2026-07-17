@@ -99,7 +99,7 @@ export function WhySaanjh() {
             <div className="flex items-center gap-5">
 
               <span className="uppercase tracking-[0.35em] text-xs font-semibold text-brand-primary">
-                PRESERVING HISTORY
+                WHY SAANJH
               </span>
 
               <div className="h-px flex-1 bg-brand-primary/20" />
